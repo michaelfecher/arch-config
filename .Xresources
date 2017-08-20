@@ -1,0 +1,115 @@
+! font
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdnone
+URxvt.font: xft:Inconsolata:size=12,xft:Dejavu:size=10,xft:Notfo:size=10
+URxvt*dynamicColors: on
+
+
+! window
+URxvt*scrollBar: off
+URxvt*geometry: 85x25
+URxvt*secondaryScroll: off
+
+!! colors
+
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #151515
+*.color8:       #696969
+
+! red
+*.color1:       #ff8eaf
+*.color9:       #ed4c7a
+
+! green
+*.color2:       #a6e25f
+*.color10:      #a6e179
+
+! yellow
+*.color3:       #f8e578
+*.color11:      #ffdf6b
+
+! blue
+*.color4:       #a6e2f0
+*.color12:      #79d2ff
+
+! magenta
+*.color5:       #e85b92
+*.color13:      #bb5d79
+
+! cyan
+*.color6:       #5f868f
+*.color14:      #87a8af
+
+! white
+*.color7:       #d5f1f2
+*.color15:      #e2f1f6
+
+
+
+
+
+! true transparency
+! http://arun.wordpress.com/2008/03/15/real-transparency-in-urxvt/
+URxvt*depth: 32
+URxvt*background: rgba:1111/1111/1111/cccc
+URxvt.transparent:   true
+URxvt.shading:       20
+
+!colored man pages
+!URxvt.colorIT:      #87af5f
+!URxvt.colorBD:      #d7d7d7
+!URxvt.colorUL:      #87afd7
+
+! URxvt.saveLines: 4096
+
+! key bindings
+!URxvt.keysym.Control-Up: \033[1;5A
+!URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Left: \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+! clears the complete urxvt history aka "reset", but faster
+URxvt.keysym.Control-l: command:\033c
+
+! perl extensions
+URxvt*perl-ext-common: keyboard-select,default,matcher,resize-font,vtwheel,clipboard
+
+URxvt.urlLauncher: firefox
+
+URxvt*matcher.button: 2
+URxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+URxvt.keysym.Control-Shift-V: perl:clipboard:paste
+URxvt.keysym.Control-Mod4-v: perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.clipboard.autocopy: true
+
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+
+URxvt*modifier: super
+
+! `font-size` plugin
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+
+! ! The default font increase step size is 1. This is for portability across all
+! ! fonts (some fonts do not support particular font sizes). Because changing font
+! ! size only really makes sense for anti-aliased fonts (Terminus is bitmapped),
+! ! and because anti-aliased fonts support any size, it makes sense to just use a
+! ! size step of 4 for faster transitions between font size changes.
+URxvt.font-size.step: 2 
