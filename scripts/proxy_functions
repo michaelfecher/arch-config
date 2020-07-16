@@ -1,0 +1,41 @@
+function proxy_on() {
+  export proxy_port=8080
+  export proxy_host=http://10.12.100.13 
+ 
+  export http_proxy=$proxy_host:$proxy_port
+  export https_proxy=$http_proxy
+  export ftp_proxy=$http_proxy
+  export rsync_proxy=$http_proxy
+  export no_proxy="10.20.74.28,10.*.*.*,192.168.*.*,localhost,127.0.0.1,localaddress,.localdomain.com"
+  export HTTP_PROXY=$http_proxy
+  export HTTPS_PROXY=$https_proxy
+  export FTP_PROXY=$ftp_proxy
+  export RSYNC_PROXY=$rsync_proxy
+  export NO_PROXY=$no_proxy
+  
+  user=$(whoami)
+  user_home=/home/$(echo $user)
+  cp ${user_home}/proxy_function_files/.gitconfig ${user_home}
+  cp ${user_home}/proxy_function_files/.npmrc ${user_home}    
+}
+ 
+function proxy_off(){
+    unset http_proxy
+    unset https_proxy
+    unset ftp_proxy
+    unset rsync_proxy
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    unset RSYNC_PROXY
+    unset rsync_proxy
+    unset FTP_PROXY
+
+    user=$(whoami)
+    user_home=/home/$(echo $user)
+    rm -f $(echo $user_home)/.gitconfig
+    rm -f $(echo $user_home)/.npmrc
+    cp ${user_home}/proxy_function_files/.gitconfig_no_proxy ${user_home}/.gitconfig
+
+    echo -e "CNTLM stopped."
+    echo -e "Proxy environment variable removed."    
+}
