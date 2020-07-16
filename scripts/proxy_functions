@@ -15,7 +15,7 @@ function proxy_on() {
   
   user=$(whoami)
   user_home=/home/$(echo $user)
-  cp ${user_home}/proxy_function_files/.gitconfig ${user_home}
+  cp ${user_home}/proxy_function_files/.gitconfig_with_proxy ${user_home}/.gitconfig
   cp ${user_home}/proxy_function_files/.npmrc ${user_home}    
 }
  
